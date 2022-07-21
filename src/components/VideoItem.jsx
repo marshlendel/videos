@@ -1,11 +1,18 @@
-const VideoItem = ({video}) => {
-  return (
-  <div>
-    <img alt="thumbnail" src={video.snippet.thumbnails.medium.url}/>
-    {video.snippet.title}
-  </div>
+import "./VideoItem.css"
 
-  )
+const VideoItem = ({ video, onVideoClick }) => {
+  return (
+    <div className="video-item item" onClick={()=> onVideoClick(video)}>
+      <img
+        className="ui image"
+        alt="thumbnail"
+        src={video.snippet.thumbnails.medium.url}
+      />
+      <div className="content">
+        <div className="header"> {video.snippet.title}</div>
+      </div>
+    </div>
+  );
 };
 
-export default VideoItem
+export default VideoItem;
